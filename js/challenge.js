@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
     }, interval)
   }
   letsCount = startCount(1000);
- 
   
   const pauseButton = document.getElementById('pause')
 
@@ -34,6 +33,18 @@ document.addEventListener("DOMContentLoaded", (e) => {
       pauseButton.innerText = 'pause'
       // clearInterval(letsCount)  
     }
+  })
+
+
+  const minusButton = document.getElementById('minus')
+  minusButton.addEventListener('click', (e) => {
+    storeCount--
+  })
+
+
+  const plusButton = document.getElementById('plus')
+  plusButton.addEventListener('click', (e) => {
+    storeCount++
   })
 })
 
