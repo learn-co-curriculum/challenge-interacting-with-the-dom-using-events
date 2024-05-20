@@ -46,9 +46,11 @@ likeButton.addEventListener('click', () => {
 
 commentForm.addEventListener('submit', (event) => {
   event.preventDefault()
+  if (!counter.classList.contains('paused')){
   const createListItem = document.createElement('p')
   createListItem.textContent = submitBox.value
   commentSection.appendChild(createListItem)
+  }
 })
 
 pauseButton.addEventListener('click', () => {
