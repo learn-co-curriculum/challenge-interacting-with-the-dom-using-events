@@ -1,28 +1,28 @@
 //timer
 const timer = document.querySelector("h1#counter") 
-let time = 0
-let myClock = -1
+myClock = setInterval(updateCounter, 1000)
 
 function updateCounter() {
   let count = parseInt(timer.innerText);
   count ++;
   timer.innerText = count 
 }
-  myClock = setInterval(updateCounter, 1000)
 
 
 // "click" - button reduces
 const minusButton = document.querySelector("#minus") 
 
-minusButton.addEventListener("click", function () )
 
-// 
-// "click" - button add
-const plusButton = document.querySelector("#plus") 
+const plusButton = document.querySelector("#plus")
+
+plusButton.addEventListener('click', function() {
+  let count = parseInt(timer.innerText);
+  count ++;
+  timer.innerText = count 
+})
+
+
 // "click" - button pause
-
-
-
 const pauseButton = document.querySelector("#pause") 
 
 pauseButton.addEventListener('click', function() {
