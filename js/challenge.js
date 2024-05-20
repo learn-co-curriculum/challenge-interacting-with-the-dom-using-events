@@ -12,7 +12,7 @@ counterID.textContent = storeCount
 
 const letsCount = setInterval(function() {
   storeCount++
-  counter.textContent = storeCount
+  counterID.textContent = storeCount
   if (storeCount === 20) {
     clearInterval(letsCount)
   }
