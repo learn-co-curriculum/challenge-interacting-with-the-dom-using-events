@@ -4,45 +4,46 @@ let plus = document.getElementById('plus')
 let minus = document.getElementById('minus')
 let timer
 let form = document.getElementById('comment-form')
-
+let heart = document.getElementById('heart')
 
 function startTimer() {
   timer = setInterval(() => {
     counter.innerText++;
   }, 1000)
 }
-  startTimer()
 
-plus.addEventListener('click', (e) => {
-  counter.innerText++
-})
-
-minus.addEventListener('click', (e) => {
-  counter.innerText--
-})
-
-
-let heart = document.getElementById('heart')
-let likeCounter = null
-let currentLikes = 0
-
-heart.addEventListener('click', (e) => {
-  let li = document.createElement('li')
-  let likesSection = document.querySelector('.likes')
-  let counterValue = counter.innerText;
-
-  if (counterValue === currentLikes) {
-    likeCounter += 1;
-  } else {
-    likeCounter = 1;
-    currentLikes = counterValue;
-  }
-
-  li.innerText = `${counter.innerText} has been liked ${likeCounter} times`
-  likesSection.appendChild(li)
+function handleIncrement() {
+  plus.addEventListener('click', (e) => {
+    counter.innerText++
   })
-
   
+  minus.addEventListener('click', (e) => {
+    counter.innerText--
+  })
+}
+
+function handleLikes() {
+  let likeCounter = null
+  let currentLikes = 0
+
+  heart.addEventListener('click', (e) => {
+    let li = document.createElement('li')
+    let likesSection = document.querySelector('.likes')
+    let counterValue = counter.innerText;
+
+    if (counterValue === currentLikes) {
+      likeCounter += 1;
+    } else {
+      likeCounter = 1;
+      currentLikes = counterValue;
+    }
+
+    li.innerText = `${counter.innerText} has been liked ${likeCounter} times`
+    likesSection.appendChild(li)
+    })
+}
+
+function handlePause() {
   let pause = document.getElementById('pause')
   let submit = document.getElementById('submit')
 
@@ -60,10 +61,12 @@ heart.addEventListener('click', (e) => {
       heart.disabled = false
       minus.disabled = false
       plus.disabled = false
-      submit.disabled = true
+      submit.disabled = false
     }
-})
+  })
+}
 
+function handleComments() {
   form.addEventListener('submit', (e) => {
     e.preventDefault()
     let comment = e.target.comment.value
@@ -74,4 +77,11 @@ heart.addEventListener('click', (e) => {
     list.appendChild(p)
     form.reset()
   })
+}
+
+  startTimer()
+  handleIncrement()
+  handleLikes()
+  handlePause()
+  handleComments()
 });
