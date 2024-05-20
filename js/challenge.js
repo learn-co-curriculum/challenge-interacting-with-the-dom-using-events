@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
   const plusButton = document.getElementById('plus')
   const heartButton = document.getElementById('heart')
   const likeSection = document.querySelector('.likes')
+  let intervalID = startCount(1000);
 
   let storeCount = 0
 
@@ -23,16 +24,15 @@ document.addEventListener("DOMContentLoaded", (e) => {
       storeCount++
       counterID.textContent = storeCount
     }, interval)
-
   }
-  letsCount = startCount(1000);
   
   pauseButton.addEventListener('click', (e) => {
+  
     if (pauseButton.innerText === 'pause') {
       pauseButton.innerText = 'resume'
-      clearInterval(letsCount)
+      clearInterval(intervalID)
     } else {
-      startCount(1000)
+      intervalID = startCount(1000)
       pauseButton.innerText = 'pause'
     }
   })
