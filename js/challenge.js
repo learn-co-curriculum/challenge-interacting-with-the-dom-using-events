@@ -13,7 +13,9 @@ counterID.textContent = storeCount
 const letsCount = setInterval(function() {
   storeCount++
   counterID.textContent = storeCount
-  if (storeCount === 20) {
-    clearInterval(letsCount)
-  }
 }, 1000)
+
+const pauseButton = document.getElementById('pause')
+pauseButton.addEventListener('click', function () {
+  clearInterval(letsCount)
+})
