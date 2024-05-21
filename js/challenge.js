@@ -31,9 +31,15 @@ document.addEventListener("DOMContentLoaded", (e) => {
     if (pauseButton.innerText === 'pause') {
       pauseButton.innerText = 'resume'
       clearInterval(intervalID)
+      minusButton.disabled = true
+      plusButton.disabled = true
+      heartButton.disabled = true
     } else {
       intervalID = startCount(1000)
       pauseButton.innerText = 'pause'
+      minusButton.disabled = false
+      plusButton.disabled = false
+      heartButton.disabled = false
     }
   })
 
