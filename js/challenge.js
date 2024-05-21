@@ -53,8 +53,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
   submitButton.addEventListener('click', (e) => {
     e.preventDefault()
-    const li = document.createElement('li')
-    li.textContent = formInput.value
-    commentSection.appendChild(li)
+    const p = document.createElement('p')
+    p.textContent = formInput.value
+    commentSection.appendChild(p)
   })
 })
